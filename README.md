@@ -53,17 +53,45 @@ select * from website where url like '%oo%';
 ```
 
 **SQL连接** SQL支持4种连接，全连接，内连接，左连接，右连接。他们的区别可以参考[左连接 ，右连接，内连接和全外连接的4者区别](https://blog.csdn.net/weixin_39220472/article/details/81193617)。
-参考a和b。在
-| id |  name   |
-|----|---------|
-|  1 | 小王  | 
-|  2 | 小李  | 
-|  3 | 小刘  |
-  
-|id | a_id |  job |  
-|----|------|--------|
-|  1 |    2 | 老师 |
-|  2 |    4 | 程序员|
+参考a和b。
+<table>
+   <caption>a表</caption>
+   <tr>
+      <td>id</td>
+      <td>name</td>
+   </tr>
+   <tr>
+      <td>1</td>
+      <td>小王</td>
+   </tr>
+   <tr>
+      <td>2</td>
+      <td>小李</td>
+   </tr>
+   <tr>
+      <td>3</td>
+      <td>小刘</td>
+   </tr>
+</table>
+
+<table>
+   <caption>b表</caption>
+   <tr>
+      <td>id</td>
+      <td>a_id</td>
+      <td>job</td>
+   </tr>
+   <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>老师</td>
+   </tr>
+   <tr>
+      <td>2</td>
+      <td>4</td>
+      <td>程序员</td>
+   </tr>
+</table>
 ```sql
 xiaotong=# select a.name,b.job from a inner join b on a.id=b.a_id;
   name   |  job  
