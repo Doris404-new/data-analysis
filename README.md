@@ -55,13 +55,6 @@ select * from website where url like '%oo%';
 **SQL连接** SQL支持4种连接，全连接，内连接，左连接，右连接。他们的区别可以参考[左连接 ，右连接，内连接和全外连接的4者区别](https://blog.csdn.net/weixin_39220472/article/details/81193617)。
 参考a和b。
 
-<style>
-table
-{
-    margin: auto;
-}
-</style>
-
 <table>
    <caption>a表</caption>
    <tr>
