@@ -52,4 +52,48 @@ where
 select * from website where url like '%oo%';
 ```
 
+**SQL连接** SQL支持4种连接，全连接，内连接，左连接，右连接。他们的区别可以参考[左连接 ，右连接，内连接和全外连接的4者区别](https://blog.csdn.net/weixin_39220472/article/details/81193617)。
+参考a和b。在
+| id |  name   |
+|----+---------
+|  1 | 小王  | 
+|  2 | 小李  | 
+|  3 | 小刘  |
+  
+|id | a_id |  job |  
+|----+------+--------|
+|  1 |    2 | 老师 |
+|  2 |    4 | 程序员|
+```sql
+xiaotong=# select a.name,b.job from a inner join b on a.id=b.a_id;
+  name   |  job  
+---------+-------
+ 小李    | 老师 
+(1 row)
+
+xiaotong=# select a.name, b.job from a left join b on a.id=b.a_id;
+  name   |  job  
+---------+-------
+ 小王    | 
+ 小李    | 老师 
+ 小刘    | 
+(3 rows)
+
+xiaotong=# select a.name, b.job from a right join b on a.id=b.a_id;
+  name   |  job   
+---------+--------
+ 小李    | 老师 
+         | 程序员
+(2 rows)
+
+xiaotong=# select a.name, b.job from a full join b on a.id=b.a_id;
+  name   |  job   
+---------+--------
+ 小王    | 
+ 小李    | 老师 
+ 小刘    | 
+         | 程序员
+(4 rows)
+```
+
 
