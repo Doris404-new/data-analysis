@@ -25,8 +25,18 @@
 - 其次是分析可能的原因：可以从视频质量，用户体验，推荐质量，舆论舆情，同品类竞品等几个方向进行分析，判断可能的原因，并加以验证。
 - 最后是针对问题进行调整解决。并对调整后的结果进行检查，检查我们的调整是否解决了异动。
 
+## SQL题目准备
 
+**好评率计算** 西瓜视频近期开展了”2020百大人气创作者”优质内容扶持项目，鼓励用户产出优质的视频内容。现需要统计2020年11月01日至2020年11月30日期间创作的视频中，“科技”大类下“数码测评"子类的视频好评率（好评率=好评数/视频观看次数），写出sql语句进行查询。用户观看视频后的评价详情表：content_action_info：id（视频id，主键）create_time (创建时间，格式‘2020-11-01’)user_id（观看者id）content_id (视频id，外键)content_action (视频评价，包括’点赞‘，’差评‘，‘无评价’)， dim_content: content_id（视频id) content_category（视频种类）content_sub_category（视频子类）。
 
+```sql
+select
+   count（1）as all_action sum(case when content_action='点赞' then 1 else 0 end) as like_action
+   sum(case when content_action='点赞' then 1 else 0 end)/count(1) as like_ratefrom
+   content_action_info as a join dim_content as b on a.content_id=b.content_id
+where
+   b.content_category='科技' and b.content_sub_category='数码测评' and a.create_time between '2020-11-01' and '2020-11-30';
+```
 
 
 
