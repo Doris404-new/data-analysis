@@ -93,13 +93,16 @@ select * from website where url like '%oo%';
       <td>程序员</td>
    </tr>
 </table>
+
 ```sql
 xiaotong=# select a.name,b.job from a inner join b on a.id=b.a_id;
   name   |  job  
 ---------+-------
  小李    | 老师 
 (1 row)
+```
 
+```sql
 xiaotong=# select a.name, b.job from a left join b on a.id=b.a_id;
   name   |  job  
 ---------+-------
@@ -107,14 +110,18 @@ xiaotong=# select a.name, b.job from a left join b on a.id=b.a_id;
  小李    | 老师 
  小刘    | 
 (3 rows)
+```
 
+```sql
 xiaotong=# select a.name, b.job from a right join b on a.id=b.a_id;
   name   |  job   
 ---------+--------
  小李    | 老师 
          | 程序员
 (2 rows)
+```
 
+```sql
 xiaotong=# select a.name, b.job from a full join b on a.id=b.a_id;
   name   |  job   
 ---------+--------
