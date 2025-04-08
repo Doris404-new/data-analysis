@@ -132,4 +132,34 @@ xiaotong=# select a.name, b.job from a full join b on a.id=b.a_id;
 (4 rows)
 ```
 
+**主键和外键的区别**
 
+主键唯一标识表中的一条记录，主键必须唯一而且不能为null。相比外键的约束就没那么严格，它是另一个表的主键，可以建立两个表格之间的关系。
+
+**case when的使用方法** 给学生的分数进行评级，要求<60不及格,>=60 <80优秀，>=80优秀，其他情况为异常。
+
+```sql
+xiaotong=# select * from student;
+ id | score 
+----+-------
+  1 |    20
+  2 |    90
+  3 |    80
+  4 |   100
+(4 rows)
+```
+
+```sql
+select id, (case when score <60 then '不及格'                                                                    when score>=60 and score<80 then '及格'
+when score>=80 then '优秀'
+else '异常' end) as remark
+from student;
+
+ id | remark 
+----+--------
+  1 | 不及格
+  2 | 优秀
+  3 | 优秀
+  4 | 优秀
+(4 rows)
+```
