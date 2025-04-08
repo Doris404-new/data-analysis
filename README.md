@@ -48,5 +48,8 @@ where
 |5  | Facebook| https://www.facebook.com/|     3 | USA  |     
 |4  | 微博    | http://weibo.com         |    20 | CN   |     
 
+```sql
+select * from website where url like '%oo%';
+```
 
 
