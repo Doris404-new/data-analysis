@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/77185179-3db7-44ce-a1c6-71016d9923ac)# data-analysis
+# data-analysis
 
 ## 面试题目准备
 
